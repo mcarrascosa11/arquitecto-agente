@@ -122,6 +122,14 @@ export default function App() {
   }),[query,status,regime,fit,opportunities])
 
   useEffect(() => {
+    if (filtered.length === 0) {
+      setSelected(null)
+      return
+    }
+    if (!selected || !filtered.some(o => o.id === selected.id)) setSelected(filtered[0])
+  }, [filtered, selected])
+
+  useEffect(() => {
     if(!mapRef.current || !window.L || mapInstance.current) return
     const map = window.L.map(mapRef.current,{zoomControl:true,attributionControl:true}).setView([41.73,-1.02],8)
     window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors'}).addTo(map)
