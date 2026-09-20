@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "lastUpdated": "20/09/2026",
+    "mode": "manual-seed",
+    "note": "Primera carga verificada. El radar automático todavía no escribe directamente en este archivo."
+  },
+  "opportunities": [
+    {
+      "id": "zgz-santa-isabel-rc1",
+      "municipality": "Zaragoza",
+      "zone": "Santa Isabel — Área F-71-7, parcela RC1",
+      "status": "ABIERTA",
+      "regime": "PROTEGIDA",
+      "priority": "C",
+      "surface": null,
+      "buildable": null,
+      "homes": 57,
+      "price": null,
+      "deadline": "28/09/2026 13:00",
+      "sourceDate": "20/07/2026",
+      "procedure": "Licitación pública",
+      "planning": "VPA",
+      "urbanized": "No verificado",
+      "risks": [
+        "Vivienda protegida: fuera del objetivo principal de vivienda libre.",
+        "Superficie, edificabilidad y precio pendientes de extracción automática del pliego."
+      ],
+      "note": "Operación vigente verificada en la sede del Ayuntamiento de Zaragoza.",
+      "lat": 41.675,
+      "lng": -0.835,
+      "locationAccuracy": "Ámbito aproximado",
+      "source": "https://www.zaragoza.es/sede/servicio/contratacion-publica/8072"
+    },
+    {
+      "id": "zgz-arcosur-c67",
+      "municipality": "Zaragoza",
+      "zone": "Arcosur — SUZ 89/3, parcela C-67",
+      "status": "ABIERTA",
+      "regime": "PROTEGIDA",
+      "priority": "C",
+      "surface": null,
+      "buildable": null,
+      "homes": 96,
+      "price": null,
+      "deadline": "28/09/2026 13:00",
+      "sourceDate": "20/07/2026",
+      "procedure": "Licitación pública",
+      "planning": "VPA-B",
+      "urbanized": "No verificado",
+      "risks": [
+        "Vivienda protegida: fuera del objetivo principal de vivienda libre.",
+        "Parcela de gran escala para el tipo de promoción objetivo."
+      ],
+      "note": "Debe adquirirse de forma independiente de la C-68.",
+      "lat": 41.611,
+      "lng": -0.929,
+      "locationAccuracy": "Ámbito aproximado",
+      "source": "https://www.zaragoza.es/sede/servicio/contratacion-publica/8071"
+    },
+    {
+      "id": "zgz-arcosur-c68",
+      "municipality": "Zaragoza",
+      "zone": "Arcosur — SUZ 89/3, parcela C-68",
+      "status": "ABIERTA",
+      "regime": "PROTEGIDA",
+      "priority": "C",
+      "surface": null,
+      "buildable": null,
+      "homes": 96,
+      "price": null,
+      "deadline": "28/09/2026 13:00",
+      "sourceDate": "20/07/2026",
+      "procedure": "Licitación pública",
+      "planning": "VPA-B",
+      "urbanized": "No verificado",
+      "risks": [
+        "Vivienda protegida: fuera del objetivo principal de vivienda libre.",
+        "Parcela de gran escala para el tipo de promoción objetivo."
+      ],
+      "note": "Debe adquirirse de forma independiente de la C-67.",
+      "lat": 41.607,
+      "lng": -0.934,
+      "locationAccuracy": "Ámbito aproximado",
+      "source": "https://www.zaragoza.es/sede/servicio/contratacion-publica/8071"
+    }
+  ]
+}
