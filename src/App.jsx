@@ -6,7 +6,7 @@ import {
 } from 'lucide-react'
 import './index.css'
 
-const opportunities = [
+const fallbackOpportunities = [
   {
     id: 'zgz-santa-isabel-rc1',
     municipality: 'Zaragoza',
@@ -116,13 +116,37 @@ function PriorityBadge({ priority }) {
 }
 
 function App() {
+  const [opportunities, setOpportunities] = useState(fallbackOpportunities)
+  const [lastUpdated, setLastUpdated] = useState('20/09/2026')
   const [query, setQuery] = useState('')
   const [status, setStatus] = useState('TODAS')
   const [regime, setRegime] = useState('LIBRE')
   const [priority, setPriority] = useState('TODAS')
-  const [selected, setSelected] = useState(opportunities[0])
+  const [selected, setSelected] = useState(fallbackOpportunities[0])
   const [view, setView] = useState('opportunities')
   const mapRef = useRef(null)
+
+  useEffect(() => {
+    let active = true
+    fetch('/data/radar.json', { cache: 'no-store' })
+      .then((response) => {
+        if (!response.ok) throw new Error('Radar feed unavailable')
+        return response.json()
+      })
+      .then((data) => {
+        if (!active || !Array.isArray(data.opportunities)) return
+        setOpportunities(data.opportunities)
+        setSelected((current) =>
+          data.opportunities.find((item) => item.id === current?.id) ||
+          data.opportunities[0] ||
+          null
+        )
+        if (data.metadata?.lastUpdated) setLastUpdated(data.metadata.lastUpdated)
+      })
+      .catch(() => {})
+    return () => { active = false }
+  }, [])
+
   const mapInstance = useRef(null)
   const markerLayer = useRef(null)
 
@@ -135,7 +159,7 @@ function App() {
       const matchesPriority = priority === 'TODAS' || o.priority === priority
       return matchesQuery && matchesStatus && matchesRegime && matchesPriority
     })
-  }, [query, status, regime, priority])
+  }, [query, status, regime, priority, opportunities])
 
   useEffect(() => {
     if (!mapRef.current || !window.L || mapInstance.current) return
@@ -183,7 +207,7 @@ function App() {
           </div>
         </div>
         <div className="top-actions">
-          <div className="last-check"><RefreshCw size={14} /> Última revisión manual: 20/09/2026</div>
+          <div className="last-check"><RefreshCw size={14} /> Última revisión de datos: {lastUpdated}</div>
           <span className="live-dot"><i></i> radar diario activo</span>
         </div>
       </header>
