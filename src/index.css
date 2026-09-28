@@ -47,3 +47,24 @@ main{max-width:1500px;margin:0 auto;padding:30px 30px 60px}.hero-grid{display:gr
 .municipality-source em{display:inline-block;font-style:normal;font-size:8px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:4px 6px;border-radius:999px;margin-top:6px}
 @media(max-width:1050px){.source-profiles{grid-template-columns:1fr}.municipality-source-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:650px){.municipality-source-grid{grid-template-columns:1fr}}
+
+.sources-page{min-height:540px}
+.source-summary{font-size:10px;color:var(--muted);border:1px solid var(--line);padding:7px 9px;border-radius:999px;background:#fff}
+.source-search{height:46px;border:1px solid var(--line);background:#fff;border-radius:11px;display:flex;align-items:center;gap:8px;padding:0 13px;margin-bottom:14px;max-width:520px}
+.source-search input{border:0;outline:0;width:100%;background:transparent;color:var(--ink)}
+.source-registry{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.municipality-source-card{border:1px solid var(--line);background:#fff;border-radius:13px;padding:14px;min-width:0}
+.municipality-source-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding-bottom:11px;border-bottom:1px solid #edf0eb}
+.municipality-source-head h4{margin:0;font-size:13px}.municipality-source-head span{display:block;font-size:9.5px;color:var(--muted);margin-top:3px}
+.source-hub-link{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;text-decoration:none;border:1px solid var(--line);padding:6px 8px;border-radius:8px;white-space:nowrap;background:#f8faf6}
+.source-groups{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:11px}
+.source-group-title{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-bottom:7px}
+.source-chip-list{display:flex;flex-wrap:wrap;gap:5px}
+.source-chip{display:inline-flex;align-items:center;gap:4px;font-size:9px;line-height:1.2;text-decoration:none;border:1px solid #dbe3d8;background:#f5f8f3;padding:5px 6px;border-radius:7px;color:#385140}
+.source-chip.common{background:#f4f3ee;color:#595a50;border-color:#e2e0d6}
+.source-extra{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px;padding-top:9px;border-top:1px solid #edf0eb}
+.source-extra>span{font-size:9px;color:var(--muted)}
+.source-extra a{display:inline-flex;align-items:center;gap:3px;font-size:9px;color:var(--green)}
+.source-warning{margin-top:10px;background:#fff6e7;color:#8a5a11;border-radius:8px;padding:8px 9px;font-size:9.5px;line-height:1.4}
+@media(max-width:900px){.source-registry{grid-template-columns:1fr}.source-groups{grid-template-columns:1fr}}
+@media(max-width:650px){.source-summary{display:none}.municipality-source-head{flex-direction:column}.source-hub-link{white-space:normal}}
