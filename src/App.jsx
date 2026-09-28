@@ -236,7 +236,7 @@ export default function App() {
           <div className="table-wrap"><table>
             <thead><tr><th>Origen</th><th>Encaje</th><th>Municipio / ámbito</th><th>Tipología</th><th>PB</th><th>Viv.</th><th>m² parcela/viv.</th><th>Suelo/viv.</th><th>Plazo</th><th></th></tr></thead>
             <tbody>
-              {filtered.map(o=><tr key={o.id} onClick={()=>setSelected(o)} className={selected?.id===o.id?'selected-row':''}>
+              {filtered.map(o=><tr key={o.id} onClick={()=>{setSelected(o); if(o.source) window.open(o.source,'_blank','noopener,noreferrer')}} className={selected?.id===o.id?'selected-row':''} title="Abrir fuente en una pestaña nueva">
                 <td><span className={'origin-badge '+((o.origin||'PÚBLICO')==='IDEALISTA'?'private':'public')}>{o.origin||'PÚBLICO'}</span></td>
                 <td><FitBadge fit={o.fit}/></td>
                 <td><strong>{o.municipality}</strong><span>{o.zone}</span></td>
@@ -246,7 +246,7 @@ export default function App() {
                 <td>{formatValue(o.plotPerHome,' m²')}</td>
                 <td>{o.landPerHome ? formatValue(o.landPerHome,' €') : 'No verificado'}</td>
                 <td>{o.deadline || '—'}</td>
-                <td><ChevronRight size={16}/></td>
+                <td><span className="table-open">Abrir <ExternalLink size={13}/></span></td>
               </tr>)}
               {filtered.length===0 && <tr><td colSpan="10" className="table-empty">Sin resultados con estos filtros.</td></tr>}
             </tbody>
