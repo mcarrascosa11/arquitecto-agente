@@ -74,3 +74,6 @@ main{max-width:1500px;margin:0 auto;padding:30px 30px 60px}.hero-grid{display:gr
 .filters{grid-template-columns:minmax(250px,1fr) repeat(4,minmax(135px,175px))}
 @media(max-width:1050px){.filters{grid-template-columns:1fr 1fr 1fr}}
 @media(max-width:650px){.filters{grid-template-columns:1fr}}
+
+.source-chip.private-market{background:#e7eef8;color:#315a89;border-color:#c9d7ea}
+.source-rule{font-size:9.5px;color:var(--muted);margin:7px 0 0;line-height:1.45;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
