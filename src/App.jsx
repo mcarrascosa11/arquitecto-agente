@@ -95,6 +95,7 @@ export default function App() {
   const [status,setStatus] = useState('TODAS')
   const [regime,setRegime] = useState('LIBRE')
   const [fit,setFit] = useState('OBJETIVO')
+  const [origin,setOrigin] = useState('TODOS')
   const [selected,setSelected] = useState(fallbackOpportunities[0])
   const [view,setView] = useState('opportunities')
   const mapRef = useRef(null)
@@ -127,8 +128,10 @@ export default function App() {
     const matchesStatus = status === 'TODAS' || o.status === status
     const matchesRegime = regime === 'TODAS' || o.regime === regime
     const matchesFit = fit === 'TODAS' || (fit === 'OBJETIVO' ? ['ALTO','MEDIO'].includes(o.fit) : o.fit === fit)
-    return matchesQuery && matchesStatus && matchesRegime && matchesFit
-  }),[query,status,regime,fit,opportunities])
+    const itemOrigin = o.origin || 'PÚBLICO'
+    const matchesOrigin = origin === 'TODOS' || itemOrigin === origin
+    return matchesQuery && matchesStatus && matchesRegime && matchesFit && matchesOrigin
+  }),[query,status,regime,fit,origin,opportunities])
 
   useEffect(() => {
     if (filtered.length === 0) {
@@ -211,7 +214,8 @@ export default function App() {
           <div className="searchbox"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Municipio, parcela o tipología..."/></div>
           <FilterSelect label="Estado" value={status} onChange={setStatus} options={['TODAS','ABIERTA','DIRECTA','FUTURA','PRELIMINAR']}/>
           <FilterSelect label="Régimen" value={regime} onChange={setRegime} options={['LIBRE','TODAS','PROTEGIDA']}/>
-          <FilterSelect label="Encaje MP Mallén" value={fit} onChange={setFit} options={['OBJETIVO','ALTO','MEDIO','TODAS','NO ENCAJA']}/>
+          <FilterSelect label="Origen" value={origin} onChange={setOrigin} options={['TODOS','PÚBLICO','IDEALISTA']}/>
+          <FilterSelect label="Encaje MP Mallén" value={fit} onChange={setFit} options={['OBJETIVO','ALTO','MEDIO','PENDIENTE','TODAS','NO ENCAJA']}/>
         </section>
 
         {filtered.length===0 && <div className="empty-state target-empty">
@@ -230,9 +234,10 @@ export default function App() {
         <section className="table-card">
           <div className="section-head"><div><span className="section-kicker">LISTADO</span><h3>{filtered.length} resultados</h3></div><SlidersHorizontal size={18}/></div>
           <div className="table-wrap"><table>
-            <thead><tr><th>Encaje</th><th>Municipio / ámbito</th><th>Tipología</th><th>PB</th><th>Viv.</th><th>m² parcela/viv.</th><th>Suelo/viv.</th><th>Plazo</th><th></th></tr></thead>
+            <thead><tr><th>Origen</th><th>Encaje</th><th>Municipio / ámbito</th><th>Tipología</th><th>PB</th><th>Viv.</th><th>m² parcela/viv.</th><th>Suelo/viv.</th><th>Plazo</th><th></th></tr></thead>
             <tbody>
               {filtered.map(o=><tr key={o.id} onClick={()=>setSelected(o)} className={selected?.id===o.id?'selected-row':''}>
+                <td><span className={'origin-badge '+((o.origin||'PÚBLICO')==='IDEALISTA'?'private':'public')}>{o.origin||'PÚBLICO'}</span></td>
                 <td><FitBadge fit={o.fit}/></td>
                 <td><strong>{o.municipality}</strong><span>{o.zone}</span></td>
                 <td>{o.typology || 'No verificado'}</td>
@@ -243,7 +248,7 @@ export default function App() {
                 <td>{o.deadline || '—'}</td>
                 <td><ChevronRight size={16}/></td>
               </tr>)}
-              {filtered.length===0 && <tr><td colSpan="9" className="table-empty">Sin resultados con estos filtros.</td></tr>}
+              {filtered.length===0 && <tr><td colSpan="10" className="table-empty">Sin resultados con estos filtros.</td></tr>}
             </tbody>
           </table></div>
         </section>
@@ -337,7 +342,7 @@ export default function App() {
       </section>}
 
       <section className="method-card">
-        <Database size={20}/><div><strong>Cruce urbanístico obligatorio</strong><p>Cada oportunidad debe contrastarse con planeamiento vigente: tipología, parcela mínima, ocupación, edificabilidad, alturas, retranqueos, densidad y viabilidad real de unifamiliar.</p></div><span>PGOU / NNSS verificado</span>
+        <Database size={20}/><div><strong>Fuentes públicas + mercado privado</strong><p>Además de boletines, sedes y planeamiento, el radar revisa Idealista en los 90 municipios. Un anuncio privado entra como candidato y no se valida hasta cruzarlo con PGOU/NNSS/SIUa/SIUN/SIU.</p></div><span>Urbanismo manda</span>
       </section>
     </main>
   </div>
@@ -358,11 +363,11 @@ function OpportunityDetail({opportunity:o}) {
   return <>
     <div className="detail-top">
       <div>
-        <div className="detail-badges"><FitBadge fit={o.fit}/><PriorityBadge priority={o.priority}/><StatusBadge status={o.status}/><span className={'regime '+o.regime.toLowerCase()}>{o.regime}</span></div>
+        <div className="detail-badges"><span className={'origin-badge '+((o.origin||'PÚBLICO')==='IDEALISTA'?'private':'public')}>{o.origin||'PÚBLICO'}</span><FitBadge fit={o.fit}/><PriorityBadge priority={o.priority}/><StatusBadge status={o.status}/><span className={'regime '+o.regime.toLowerCase()}>{o.regime}</span></div>
         <h3>{o.zone}</h3>
         <p><MapPin size={14}/>{o.municipality} · {o.locationAccuracy}</p>
       </div>
-      <a href={o.source} target="_blank" rel="noreferrer" className="source-btn">Fuente oficial <ExternalLink size={14}/></a>
+      <a href={o.source} target="_blank" rel="noreferrer" className="source-btn">{(o.origin||'PÚBLICO')==='IDEALISTA' ? 'Ver anuncio' : 'Fuente oficial'} <ExternalLink size={14}/></a>
     </div>
 
     <div className="product-grid">
