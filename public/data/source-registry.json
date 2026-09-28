@@ -1,0 +1,468 @@
+{
+  "version": 1,
+  "updated": "28/09/2026",
+  "purpose": "Matriz de fuentes obligatorias del radar de promociones unifamiliares Ebro.",
+  "searchTerms": [
+    "enajenación",
+    "enajenar",
+    "subasta",
+    "solar",
+    "parcela",
+    "venta directa",
+    "adjudicación directa",
+    "patrimonio municipal del suelo",
+    "patrimonio",
+    "alienable",
+    "alienabilidad",
+    "desafectación",
+    "tasación",
+    "valoración",
+    "pliego",
+    "expediente de enajenación",
+    "bienes patrimoniales",
+    "subasta desierta",
+    "licitación desierta",
+    "segregación",
+    "reparcelación"
+  ],
+  "executionRule": "En cada ejecución diaria revisar TODOS los mandatoryChecks del perfil de CADA municipio. No dar un municipio por revisado si solo se ha consultado el boletín. Registrar fuente consultada, fecha y resultado. Las actas/órdenes del día son fuente prioritaria de señal temprana.",
+  "profiles": {
+    "aragon_zaragoza": {
+      "jurisdiction": "Aragón / provincia de Zaragoza",
+      "mandatoryChecks": [
+        {
+          "key": "bulletin",
+          "name": "BOPZ",
+          "purpose": "Anuncios oficiales de enajenación, subasta, aprobación de expedientes, desafectaciones y patrimonio.",
+          "url": "https://bop.dpz.es/BOPZ/"
+        },
+        {
+          "key": "municipal_web",
+          "name": "Web oficial del Ayuntamiento",
+          "purpose": "Noticias, anuncios y expedientes patrimoniales que puedan aparecer antes o además del boletín.",
+          "urlRule": "Descubrir y usar únicamente el dominio oficial del Ayuntamiento."
+        },
+        {
+          "key": "electronic_office",
+          "name": "Sede electrónica / tablón de anuncios",
+          "purpose": "Edictos, licitaciones, exposición pública, patrimonio, resoluciones y plazos.",
+          "urlRule": "Entrar desde la web oficial municipal o verificar que el dominio de sede está enlazado por el Ayuntamiento."
+        },
+        {
+          "key": "plenary",
+          "name": "Plenos / actas / órdenes del día / Junta de Gobierno",
+          "purpose": "Señal temprana: iniciar enajenación, declarar alienable, aprobar valoración, pliegos, subastas o venta directa.",
+          "urlRule": "Sección oficial municipal de Plenos, Actas, Videoacta o Transparencia."
+        },
+        {
+          "key": "transparency",
+          "name": "Portal de transparencia / patrimonio / inventario",
+          "purpose": "Inventario de bienes, patrimonio municipal del suelo, acuerdos patrimoniales y expedientes.",
+          "urlRule": "Portal oficial municipal o de la administración pública que lo aloje."
+        },
+        {
+          "key": "procurement",
+          "name": "Perfil de contratante / PLACSP",
+          "purpose": "Comprobar expedientes publicados por el Ayuntamiento cuando utilice contratación pública.",
+          "url": "https://contrataciondelestado.es/"
+        },
+        {
+          "key": "planning",
+          "name": "SIUa + planeamiento municipal vigente",
+          "purpose": "Cruce PGOU/NNSS: clasificación, uso, ordenanza, tipología, edificabilidad, ocupación, alturas y retranqueos.",
+          "url": "https://idearagon.aragon.es/SIUa/visor"
+        },
+        {
+          "key": "planning_archive",
+          "name": "Archivo SIUa",
+          "purpose": "Normativa y modificaciones del planeamiento vigente por municipio.",
+          "url": "https://idearagon.aragon.es/SIUa/archivo"
+        }
+      ]
+    },
+    "navarra": {
+      "jurisdiction": "Navarra",
+      "mandatoryChecks": [
+        {
+          "key": "bulletin",
+          "name": "BON",
+          "purpose": "Anuncios oficiales de entidades locales, urbanismo, patrimonio, aprobaciones y exposiciones públicas.",
+          "url": "https://bon.navarra.es/es/"
+        },
+        {
+          "key": "asset_disposals",
+          "name": "Portal de Contratación de Navarra — Actos de disposición y aprovechamientos de bienes",
+          "purpose": "Licitaciones, información previa y resultados de actos patrimoniales de entidades locales.",
+          "url": "https://portalcontratacion.navarra.es/es/web/portalcontratacion/quiero-ver-los-anuncios-de-contratos"
+        },
+        {
+          "key": "municipal_web",
+          "name": "Web oficial del Ayuntamiento",
+          "purpose": "Noticias, comunicados y documentación patrimonial o urbanística.",
+          "urlRule": "Descubrir y usar únicamente el dominio oficial del Ayuntamiento."
+        },
+        {
+          "key": "electronic_office",
+          "name": "Sede electrónica / tablón de anuncios",
+          "purpose": "Edictos, expedientes, patrimonio, plazos y resoluciones.",
+          "urlRule": "Entrar desde la web oficial municipal o verificar que el dominio de sede está enlazado por el Ayuntamiento."
+        },
+        {
+          "key": "plenary",
+          "name": "Plenos / actas / órdenes del día / Videoacta / Junta",
+          "purpose": "Señal temprana de enajenaciones, alteraciones de calificación jurídica, tasaciones, pliegos o venta directa.",
+          "urlRule": "Sección oficial municipal de Plenos, Actas, Videoacta o Transparencia."
+        },
+        {
+          "key": "transparency",
+          "name": "Portal de transparencia / patrimonio / inventario",
+          "purpose": "Bienes municipales, patrimonio, acuerdos y expedientes previos.",
+          "urlRule": "Portal oficial municipal o de Navarra que corresponda."
+        },
+        {
+          "key": "planning",
+          "name": "SIUN",
+          "purpose": "Planeamiento vigente, normativa y planos municipales.",
+          "url": "https://www.navarra.es/es/territorio-paisaje-y-urbanismo/descargas"
+        },
+        {
+          "key": "cartography",
+          "name": "SITNA",
+          "purpose": "Localización parcelaria, ortofoto y apoyo al cruce del planeamiento.",
+          "url": "https://sitna.navarra.es/"
+        }
+      ]
+    },
+    "la_rioja": {
+      "jurisdiction": "La Rioja",
+      "mandatoryChecks": [
+        {
+          "key": "bulletin",
+          "name": "BOR",
+          "purpose": "Anuncios oficiales de ayuntamientos, enajenaciones, urbanismo, información pública y patrimonio.",
+          "url": "https://web.larioja.org/bor-portada/bor"
+        },
+        {
+          "key": "municipal_web",
+          "name": "Web oficial del Ayuntamiento",
+          "purpose": "Noticias, anuncios, patrimonio y expedientes.",
+          "urlRule": "Descubrir y usar únicamente el dominio oficial del Ayuntamiento."
+        },
+        {
+          "key": "electronic_office",
+          "name": "Sede electrónica / tablón de anuncios",
+          "purpose": "Edictos, resoluciones, licitaciones y plazos.",
+          "urlRule": "Entrar desde la web oficial municipal o verificar que el dominio de sede está enlazado por el Ayuntamiento."
+        },
+        {
+          "key": "plenary",
+          "name": "Plenos / actas / órdenes del día / Junta de Gobierno",
+          "purpose": "Señal temprana de venta, tasación, desafectación o inicio de expediente.",
+          "urlRule": "Sección oficial municipal de Plenos, Actas o Transparencia."
+        },
+        {
+          "key": "transparency",
+          "name": "Portal de transparencia / patrimonio / inventario",
+          "purpose": "Inventario y movimientos de bienes municipales.",
+          "urlRule": "Portal oficial municipal o autonómico."
+        },
+        {
+          "key": "procurement",
+          "name": "Perfil de contratante / PLACSP",
+          "purpose": "Expedientes que el Ayuntamiento publique por esta vía.",
+          "url": "https://contrataciondelestado.es/"
+        },
+        {
+          "key": "planning",
+          "name": "SIU La Rioja",
+          "purpose": "Planeamiento, normativa, clasificación y planos por municipio.",
+          "url": "https://siu.larioja.org/"
+        },
+        {
+          "key": "planning_legal_check",
+          "name": "Ayuntamiento — planeamiento definitivo",
+          "purpose": "Confirmación jurídica final de la normativa aplicable; el visor SIU advierte que la aprobación definitiva municipal debe contrastarse con el Ayuntamiento.",
+          "urlRule": "Documentación urbanística oficial municipal."
+        }
+      ]
+    }
+  },
+  "municipalities": {
+    "Zaragoza": {
+      "profile": "aragon_zaragoza"
+    },
+    "Utebo": {
+      "profile": "aragon_zaragoza"
+    },
+    "La Puebla de Alfindén": {
+      "profile": "aragon_zaragoza"
+    },
+    "Villamayor de Gállego": {
+      "profile": "aragon_zaragoza"
+    },
+    "Pastriz": {
+      "profile": "aragon_zaragoza"
+    },
+    "Alfajarín": {
+      "profile": "aragon_zaragoza"
+    },
+    "Nuez de Ebro": {
+      "profile": "aragon_zaragoza"
+    },
+    "El Burgo de Ebro": {
+      "profile": "aragon_zaragoza"
+    },
+    "Villafranca de Ebro": {
+      "profile": "aragon_zaragoza"
+    },
+    "Osera de Ebro": {
+      "profile": "aragon_zaragoza"
+    },
+    "Fuentes de Ebro": {
+      "profile": "aragon_zaragoza"
+    },
+    "Mediana de Aragón": {
+      "profile": "aragon_zaragoza"
+    },
+    "Alagón": {
+      "profile": "aragon_zaragoza"
+    },
+    "Alcalá de Ebro": {
+      "profile": "aragon_zaragoza"
+    },
+    "Bárboles": {
+      "profile": "aragon_zaragoza"
+    },
+    "Boquiñeni": {
+      "profile": "aragon_zaragoza"
+    },
+    "Cabañas de Ebro": {
+      "profile": "aragon_zaragoza"
+    },
+    "Figueruelas": {
+      "profile": "aragon_zaragoza"
+    },
+    "Gallur": {
+      "profile": "aragon_zaragoza"
+    },
+    "Grisén": {
+      "profile": "aragon_zaragoza"
+    },
+    "La Joyosa": {
+      "profile": "aragon_zaragoza"
+    },
+    "Luceni": {
+      "profile": "aragon_zaragoza"
+    },
+    "Pedrola": {
+      "profile": "aragon_zaragoza"
+    },
+    "Pinseque": {
+      "profile": "aragon_zaragoza"
+    },
+    "Pleitas": {
+      "profile": "aragon_zaragoza"
+    },
+    "Pradilla de Ebro": {
+      "profile": "aragon_zaragoza"
+    },
+    "Remolinos": {
+      "profile": "aragon_zaragoza"
+    },
+    "Sobradiel": {
+      "profile": "aragon_zaragoza"
+    },
+    "Torres de Berrellén": {
+      "profile": "aragon_zaragoza"
+    },
+    "Alborge": {
+      "profile": "aragon_zaragoza"
+    },
+    "Alforque": {
+      "profile": "aragon_zaragoza"
+    },
+    "Cinco Olivas": {
+      "profile": "aragon_zaragoza"
+    },
+    "Escatrón": {
+      "profile": "aragon_zaragoza"
+    },
+    "Gelsa": {
+      "profile": "aragon_zaragoza"
+    },
+    "Monegrillo": {
+      "profile": "aragon_zaragoza"
+    },
+    "Pina de Ebro": {
+      "profile": "aragon_zaragoza"
+    },
+    "Quinto": {
+      "profile": "aragon_zaragoza"
+    },
+    "Sástago": {
+      "profile": "aragon_zaragoza"
+    },
+    "Velilla de Ebro": {
+      "profile": "aragon_zaragoza"
+    },
+    "La Zaida": {
+      "profile": "aragon_zaragoza"
+    },
+    "Agón": {
+      "profile": "aragon_zaragoza"
+    },
+    "Ainzón": {
+      "profile": "aragon_zaragoza"
+    },
+    "Alberite de San Juan": {
+      "profile": "aragon_zaragoza"
+    },
+    "Albeta": {
+      "profile": "aragon_zaragoza"
+    },
+    "Ambel": {
+      "profile": "aragon_zaragoza"
+    },
+    "Bisimbre": {
+      "profile": "aragon_zaragoza"
+    },
+    "Borja": {
+      "profile": "aragon_zaragoza"
+    },
+    "Bulbuente": {
+      "profile": "aragon_zaragoza"
+    },
+    "Bureta": {
+      "profile": "aragon_zaragoza"
+    },
+    "Fréscano": {
+      "profile": "aragon_zaragoza"
+    },
+    "Fuendejalón": {
+      "profile": "aragon_zaragoza"
+    },
+    "Magallón": {
+      "profile": "aragon_zaragoza"
+    },
+    "Maleján": {
+      "profile": "aragon_zaragoza"
+    },
+    "Mallén": {
+      "profile": "aragon_zaragoza"
+    },
+    "Novillas": {
+      "profile": "aragon_zaragoza"
+    },
+    "Pozuelo de Aragón": {
+      "profile": "aragon_zaragoza"
+    },
+    "Tabuenca": {
+      "profile": "aragon_zaragoza"
+    },
+    "Talamantes": {
+      "profile": "aragon_zaragoza"
+    },
+    "Tarazona": {
+      "profile": "aragon_zaragoza"
+    },
+    "Novallas": {
+      "profile": "aragon_zaragoza"
+    },
+    "Malón": {
+      "profile": "aragon_zaragoza"
+    },
+    "Vierlas": {
+      "profile": "aragon_zaragoza"
+    },
+    "Grisel": {
+      "profile": "aragon_zaragoza"
+    },
+    "Santa Cruz de Moncayo": {
+      "profile": "aragon_zaragoza"
+    },
+    "Tudela": {
+      "profile": "navarra"
+    },
+    "Fontellas": {
+      "profile": "navarra"
+    },
+    "Cabanillas": {
+      "profile": "navarra"
+    },
+    "Fustiñana": {
+      "profile": "navarra"
+    },
+    "Ribaforada": {
+      "profile": "navarra"
+    },
+    "Buñuel": {
+      "profile": "navarra"
+    },
+    "Cortes": {
+      "profile": "navarra"
+    },
+    "Ablitas": {
+      "profile": "navarra"
+    },
+    "Barillas": {
+      "profile": "navarra"
+    },
+    "Cascante": {
+      "profile": "navarra"
+    },
+    "Murchante": {
+      "profile": "navarra",
+      "overrides": {
+        "officialWebsite": "https://www.murchante.es/",
+        "electronicOffice": "https://murchante.sedipualba.es/",
+        "plenary": "https://www.murchante.es/ayuntamiento/informacion/",
+        "videoAct": "https://teledifusioncloud.net/murchante/"
+      }
+    },
+    "Monteagudo": {
+      "profile": "navarra"
+    },
+    "Tulebras": {
+      "profile": "navarra"
+    },
+    "Cintruénigo": {
+      "profile": "navarra"
+    },
+    "Fitero": {
+      "profile": "navarra"
+    },
+    "Corella": {
+      "profile": "navarra"
+    },
+    "Castejón": {
+      "profile": "navarra"
+    },
+    "Arguedas": {
+      "profile": "navarra"
+    },
+    "Valtierra": {
+      "profile": "navarra"
+    },
+    "Cadreita": {
+      "profile": "navarra"
+    },
+    "Milagro": {
+      "profile": "navarra"
+    },
+    "Villafranca": {
+      "profile": "navarra"
+    },
+    "Alfaro": {
+      "profile": "la_rioja"
+    },
+    "Rincón de Soto": {
+      "profile": "la_rioja"
+    },
+    "Aldeanueva de Ebro": {
+      "profile": "la_rioja"
+    },
+    "Cervera del Río Alhama": {
+      "profile": "la_rioja"
+    }
+  }
+}
