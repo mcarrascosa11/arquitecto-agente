@@ -89,6 +89,7 @@ function FitBadge({fit}) {
 export default function App() {
   const [opportunities,setOpportunities] = useState(fallbackOpportunities)
   const [lastUpdated,setLastUpdated] = useState('20/09/2026')
+  const [sourceRegistry,setSourceRegistry] = useState(null)
   const [query,setQuery] = useState('')
   const [status,setStatus] = useState('TODAS')
   const [regime,setRegime] = useState('LIBRE')
@@ -96,6 +97,13 @@ export default function App() {
   const [selected,setSelected] = useState(fallbackOpportunities[0])
   const [view,setView] = useState('opportunities')
   const mapRef = useRef(null)
+
+  useEffect(() => {
+    fetch('/data/source-registry.json',{cache:'no-store'})
+      .then(r => r.ok ? r.json() : null)
+      .then(data => { if(data) setSourceRegistry(data) })
+      .catch(() => {})
+  },[])
   const mapInstance = useRef(null)
   const markerLayer = useRef(null)
 
@@ -194,6 +202,7 @@ export default function App() {
         <button className={view==='signals'?'active':''} onClick={()=>setView('signals')}>Señales tempranas</button>
         <button className={view==='history'?'active':''} onClick={()=>setView('history')}>Histórico</button>
         <button className={view==='coverage'?'active':''} onClick={()=>setView('coverage')}>Cobertura</button>
+        <button className={view==='sources'?'active':''} onClick={()=>setView('sources')}>Fuentes</button>
       </nav>
 
       {view==='opportunities' && <>
@@ -255,6 +264,33 @@ export default function App() {
       {view==='coverage' && <section className="panel-page">
         <div className="section-head"><div><span className="section-kicker">PERÍMETRO OPERATIVO</span><h3>{Object.values(coverage).flat().length} municipios</h3></div></div>
         <div className="coverage-grid">{Object.entries(coverage).map(([group,towns])=><div className="coverage-card" key={group}><h4>{group}</h4><p>{towns.join(' · ')}</p></div>)}</div>
+      </section>}
+
+
+      {view==='sources' && <section className="panel-page">
+        <div className="section-head"><div><span className="section-kicker">MATRIZ DE VIGILANCIA</span><h3>Fuentes por municipio</h3></div></div>
+        {!sourceRegistry ? <div className="empty-state"><Database size={22}/><div><strong>Cargando matriz de fuentes…</strong></div></div> :
+        <div className="source-registry">
+          <p className="source-intro">Cada municipio debe completar todos los puntos de su perfil. Un boletín sin sede, plenos y patrimonio revisados no cuenta como municipio revisado.</p>
+          <div className="source-profiles">
+            {Object.entries(sourceRegistry.profiles || {}).map(([key,profile]) => <div className="source-profile" key={key}>
+              <h4>{profile.jurisdiction}</h4>
+              <div className="source-checks">{profile.mandatoryChecks.map((s,i)=><div className="source-check" key={i}>
+                <strong>{i+1}. {s.name}</strong><span>{s.purpose}</span>
+              </div>)}</div>
+            </div>)}
+          </div>
+          <div className="source-municipalities">
+            <h4>{Object.keys(sourceRegistry.municipalities || {}).length} municipios asignados</h4>
+            <div className="municipality-source-grid">
+              {Object.entries(sourceRegistry.municipalities || {}).map(([name,config]) => <div className="municipality-source" key={name}>
+                <strong>{name}</strong>
+                <span>{sourceRegistry.profiles?.[config.profile]?.jurisdiction || config.profile}</span>
+                {config.overrides && <em>Fuentes municipales fijadas</em>}
+              </div>)}
+            </div>
+          </div>
+        </div>}
       </section>}
 
       <section className="method-card">
