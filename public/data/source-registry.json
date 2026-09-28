@@ -5,14 +5,13 @@
   "purpose": "Matriz explícita de portales obligatorios para el radar de promociones unifamiliares Ebro.",
   "verificationSummary": {
     "total": 90,
-    "directMunicipalHub": 87,
-    "officialRegionalRegistryFallback": 3,
+    "directMunicipalHub": 88,
+    "officialRegionalRegistryFallback": 2,
     "fallbackMunicipalities": [
       "Cinco Olivas",
-      "Agón",
       "Barillas"
     ],
-    "rule": "Los tres fallback siguen cubiertos por boletín, contratación/actos patrimoniales y planeamiento regional; en cada ejecución se intentará además resolver una sede municipal oficial estable sin usar directorios privados."
+    "rule": "Los dos fallback siguen cubiertos por registros oficiales autonómicos, boletín, contratación/actos patrimoniales y planeamiento regional; en cada ejecución se intentará resolver una sede municipal oficial estable sin usar directorios privados."
   },
   "searchTerms": [
     "enajenación",
@@ -2173,48 +2172,48 @@
       "profile": "aragon_zaragoza",
       "verifiedOn": "28/09/2026",
       "municipalHub": {
-        "url": "https://www.aragon.es/municipios/agon",
-        "type": "registro_autonomico"
+        "url": "https://agon.sedelectronica.es/",
+        "type": "sede_electronica"
       },
       "municipalChecks": [
         {
           "key": "municipal_hub",
           "name": "Registro autonómico oficial de la entidad",
-          "url": "https://www.aragon.es/municipios/agon",
+          "url": "https://agon.sedelectronica.es/",
           "required": true
         },
         {
           "key": "notice_board",
           "name": "Tablón / publicaciones oficiales",
-          "url": "https://www.aragon.es/municipios/agon",
+          "url": "https://agon.sedelectronica.es/",
           "required": true,
           "instructions": "Entrar desde el portal maestro en Tablón/Anuncios/Publicaciones oficiales; si no existe enlace, localizar la sede oficial enlazada."
         },
         {
           "key": "plenary",
           "name": "Plenos / actas / órdenes del día / Junta",
-          "url": "https://www.aragon.es/municipios/agon",
+          "url": "https://agon.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar sección Ayuntamiento/Plenos/Actas/Acuerdos; seguir cualquier enlace oficial a Videoacta o sede."
         },
         {
           "key": "transparency",
           "name": "Transparencia / patrimonio / inventario",
-          "url": "https://www.aragon.es/municipios/agon",
+          "url": "https://agon.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar Transparencia y Patrimonio; seguir el enlace oficial si está alojado externamente."
         },
         {
           "key": "procurement_local",
           "name": "Perfil de contratante municipal",
-          "url": "https://www.aragon.es/municipios/agon",
+          "url": "https://agon.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar enlace municipal al perfil de contratante/portal de contratación."
         },
         {
           "key": "urbanism_local",
           "name": "Urbanismo municipal / planeamiento definitivo",
-          "url": "https://www.aragon.es/municipios/agon",
+          "url": "https://agon.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
