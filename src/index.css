@@ -77,3 +77,5 @@ main{max-width:1500px;margin:0 auto;padding:30px 30px 60px}.hero-grid{display:gr
 
 .source-chip.private-market{background:#e7eef8;color:#315a89;border-color:#c9d7ea}
 .source-rule{font-size:9.5px;color:var(--muted);margin:7px 0 0;line-height:1.45;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+.custom-pin-approx{background:#fff!important;border:2px solid;display:grid!important;place-items:center;font-size:12px!important;font-weight:900!important;box-shadow:0 2px 7px rgba(0,0,0,.24)}
