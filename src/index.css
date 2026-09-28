@@ -68,3 +68,9 @@ main{max-width:1500px;margin:0 auto;padding:30px 30px 60px}.hero-grid{display:gr
 .source-warning{margin-top:10px;background:#fff6e7;color:#8a5a11;border-radius:8px;padding:8px 9px;font-size:9.5px;line-height:1.4}
 @media(max-width:900px){.source-registry{grid-template-columns:1fr}.source-groups{grid-template-columns:1fr}}
 @media(max-width:650px){.source-summary{display:none}.municipality-source-head{flex-direction:column}.source-hub-link{white-space:normal}}
+
+.origin-badge{display:inline-flex!important;width:max-content!important;padding:4px 7px;border-radius:999px;font-size:9px!important;font-weight:850;letter-spacing:.05em;margin:0!important;white-space:nowrap}
+.origin-badge.public{background:#e5eee8;color:#285b3b}.origin-badge.private{background:#e7eef8;color:#315a89}
+.filters{grid-template-columns:minmax(250px,1fr) repeat(4,minmax(135px,175px))}
+@media(max-width:1050px){.filters{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:650px){.filters{grid-template-columns:1fr}}
