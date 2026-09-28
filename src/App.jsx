@@ -246,7 +246,7 @@ export default function App() {
                 <td>{formatValue(o.plotPerHome,' m²')}</td>
                 <td>{o.landPerHome ? formatValue(o.landPerHome,' €') : 'No verificado'}</td>
                 <td>{o.deadline || '—'}</td>
-                <td><span className="table-open">Abrir <ExternalLink size={13}/></span></td>
+                <td><a className="table-open" href={o.source} target="_blank" rel="noreferrer" onClick={e=>e.stopPropagation()}>Abrir <ExternalLink size={13}/></a></td>
               </tr>)}
               {filtered.length===0 && <tr><td colSpan="10" className="table-empty">Sin resultados con estos filtros.</td></tr>}
             </tbody>
