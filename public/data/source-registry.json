@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "updated": "28/09/2026",
   "expectedMunicipalities": 90,
   "purpose": "Matriz explícita de portales obligatorios para el radar de promociones unifamiliares Ebro.",
@@ -37,7 +37,7 @@
     "reparcelación",
     "permuta"
   ],
-  "executionRule": "En cada ejecución diaria revisar el portal maestro municipal y TODOS los municipalChecks de CADA municipio, además de TODOS los commonPortals de su perfil. No dar un municipio por revisado si falta Tablón/Publicaciones, Plenos/Actas/Junta, Transparencia/Patrimonio, Contratación o Urbanismo. Registrar cobertura y fallos. Las actas y órdenes del día son fuente prioritaria de señal temprana.",
+  "executionRule": "En cada ejecución diaria revisar el portal maestro municipal y TODOS los municipalChecks de CADA municipio, además de TODOS los commonPortals de su perfil. No dar un municipio por revisado si falta Tablón/Publicaciones, Plenos/Actas/Junta, Transparencia/Patrimonio, Contratación o Urbanismo. Registrar cobertura y fallos. Las actas y órdenes del día son fuente prioritaria de señal temprana. Además, revisar diariamente `privateMarketChecks` para cada municipio. Idealista es obligatorio como fuente de descubrimiento privada, pero nunca valida por sí solo el uso urbanístico.",
   "profiles": {
     "aragon_zaragoza": {
       "jurisdiction": "Aragón / provincia de Zaragoza",
@@ -160,6 +160,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Zaragoza\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Utebo": {
@@ -214,7 +223,16 @@
       ],
       "extraPortals": {
         "electronicOffice": "https://www.utebo.es/sede-electronica"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Utebo\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "La Puebla de Alfindén": {
       "profile": "aragon_zaragoza",
@@ -264,6 +282,15 @@
           "url": "https://lapuebladealfinden.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"La Puebla de Alfindén\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -316,6 +343,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Villamayor de Gállego\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Pastriz": {
@@ -366,6 +402,15 @@
           "url": "https://pastriz.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Pastriz\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -418,6 +463,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Alfajarín\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Nuez de Ebro": {
@@ -469,6 +523,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Nuez de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "El Burgo de Ebro": {
@@ -519,6 +582,15 @@
           "url": "https://elburgodeebro.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"El Burgo de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -574,7 +646,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://villafrancadeebro.com/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Villafranca de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Osera de Ebro": {
       "profile": "aragon_zaragoza",
@@ -624,6 +705,15 @@
           "url": "https://osera.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Osera de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -681,7 +771,16 @@
         "officialWebsite": "https://www.fuentesdeebro.es/",
         "plenary": "https://www.fuentesdeebro.es/ayuntamiento-fuentes-ebro/el-pleno/",
         "noticeBoard": "https://www.fuentesdeebro.es/tablon-de-anuncios/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Fuentes de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Mediana de Aragón": {
       "profile": "aragon_zaragoza",
@@ -731,6 +830,15 @@
           "url": "https://medianadearagon.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Mediana de Aragón\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -783,6 +891,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Alagón\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Alcalá de Ebro": {
@@ -833,6 +950,15 @@
           "url": "https://alcaladeebro.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Alcalá de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -885,6 +1011,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Bárboles\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Boquiñeni": {
@@ -935,6 +1070,15 @@
           "url": "https://boquineni.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Boquiñeni\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -987,6 +1131,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Cabañas de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Figueruelas": {
@@ -1037,6 +1190,15 @@
           "url": "https://figueruelas.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Figueruelas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -1089,6 +1251,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Gallur\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Grisén": {
@@ -1140,6 +1311,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Grisén\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "La Joyosa": {
@@ -1190,6 +1370,15 @@
           "url": "https://lajoyosa.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"La Joyosa\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -1245,7 +1434,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://luceni.net/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Luceni\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Pedrola": {
       "profile": "aragon_zaragoza",
@@ -1295,6 +1493,15 @@
           "url": "https://pedrola.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Pedrola\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -1350,7 +1557,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://pinseque.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Pinseque\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Pleitas": {
       "profile": "aragon_zaragoza",
@@ -1400,6 +1616,15 @@
           "url": "https://pleitas.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Pleitas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -1452,6 +1677,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Pradilla de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Remolinos": {
@@ -1502,6 +1736,15 @@
           "url": "https://remolinos.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Remolinos\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -1554,6 +1797,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Sobradiel\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Torres de Berrellén": {
@@ -1604,6 +1856,15 @@
           "url": "https://torresdeberrellen.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Torres de Berrellén\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -1656,6 +1917,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Alborge\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Alforque": {
@@ -1706,6 +1976,15 @@
           "url": "https://alforque.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Alforque\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -1758,6 +2037,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Cinco Olivas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Escatrón": {
@@ -1808,6 +2096,15 @@
           "url": "https://escatron.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Escatrón\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -1860,6 +2157,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Gelsa\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Monegrillo": {
@@ -1910,6 +2216,15 @@
           "url": "https://monegrillo.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Monegrillo\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -1962,6 +2277,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Pina de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Quinto": {
@@ -2012,6 +2336,15 @@
           "url": "https://quinto.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Quinto\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -2064,6 +2397,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Sástago\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Velilla de Ebro": {
@@ -2114,6 +2456,15 @@
           "url": "https://velilladeebro.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Velilla de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -2166,6 +2517,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"La Zaida\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Agón": {
@@ -2216,6 +2576,15 @@
           "url": "https://agon.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Agón\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -2268,6 +2637,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Ainzón\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Alberite de San Juan": {
@@ -2319,6 +2697,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Alberite de San Juan\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Albeta": {
@@ -2369,6 +2756,15 @@
           "url": "https://albeta.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Albeta\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -2424,7 +2820,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://aytoambel.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Ambel\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Bisimbre": {
       "profile": "aragon_zaragoza",
@@ -2474,6 +2879,15 @@
           "url": "https://bisimbre.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Bisimbre\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -2525,6 +2939,15 @@
           "url": "https://borja.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Borja\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -2580,7 +3003,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://aytobulbuente.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Bulbuente\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Bureta": {
       "profile": "aragon_zaragoza",
@@ -2630,6 +3062,15 @@
           "url": "https://bureta.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Bureta\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -2682,6 +3123,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Fréscano\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Fuendejalón": {
@@ -2732,6 +3182,15 @@
           "url": "https://fuendejalon.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Fuendejalón\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -2784,6 +3243,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Magallón\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Maleján": {
@@ -2834,6 +3302,15 @@
           "url": "https://malejan.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Maleján\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -2886,6 +3363,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Mallén\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Novillas": {
@@ -2936,6 +3422,15 @@
           "url": "https://novillas.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Novillas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -2991,7 +3486,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://pozuelodearagon.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Pozuelo de Aragón\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Tabuenca": {
       "profile": "aragon_zaragoza",
@@ -3041,6 +3545,15 @@
           "url": "https://tabuenca.sedelectronica.es/",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Tabuenca\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -3092,6 +3605,15 @@
           "url": "https://talamantes.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Talamantes\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -3147,7 +3669,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.tarazona.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Tarazona\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Novallas": {
       "profile": "aragon_zaragoza",
@@ -3197,6 +3728,15 @@
           "url": "https://novallas.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Novallas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -3249,6 +3789,15 @@
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
         }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Malón\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
       ]
     },
     "Vierlas": {
@@ -3299,6 +3848,15 @@
           "url": "https://vierlas.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Vierlas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -3354,7 +3912,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.grisel.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Grisel\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Santa Cruz de Moncayo": {
       "profile": "aragon_zaragoza",
@@ -3404,6 +3971,15 @@
           "url": "https://santacruzdemoncayo.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Santa Cruz de Moncayo\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -3459,7 +4035,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.tudela.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Tudela\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Fontellas": {
       "profile": "navarra",
@@ -3513,7 +4098,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.fontellas.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Fontellas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Cabanillas": {
       "profile": "navarra",
@@ -3567,7 +4161,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.cabanillas.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Cabanillas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Fustiñana": {
       "profile": "navarra",
@@ -3617,6 +4220,15 @@
           "url": "https://fustinana.clmtec.es/sede-portal/home",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Fustiñana\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -3672,7 +4284,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.ribaforada.es/ayuntamiento/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Ribaforada\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Buñuel": {
       "profile": "navarra",
@@ -3726,7 +4347,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.bunuel.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Buñuel\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Cortes": {
       "profile": "navarra",
@@ -3780,7 +4410,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.cortes.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Cortes\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Ablitas": {
       "profile": "navarra",
@@ -3834,7 +4473,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://ablitas.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Ablitas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Barillas": {
       "profile": "navarra",
@@ -3884,6 +4532,15 @@
           "url": "https://www.navarra.es/es/buscador-de-entidades-locales/-/detalle/1767",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Barillas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -3939,7 +4596,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://cascante.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Cascante\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Murchante": {
       "profile": "navarra",
@@ -3994,7 +4660,16 @@
       "extraPortals": {
         "officialWebsite": "https://www.murchante.es/",
         "videoAct": "https://teledifusioncloud.net/murchante/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Murchante\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Monteagudo": {
       "profile": "navarra",
@@ -4048,7 +4723,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://ayuntamiento.monteagudo.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Monteagudo\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Tulebras": {
       "profile": "navarra",
@@ -4102,7 +4786,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.tulebras.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Tulebras\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Cintruénigo": {
       "profile": "navarra",
@@ -4152,6 +4845,15 @@
           "url": "https://cintruenigo.sedelectronica.es/info.0",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Cintruénigo\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -4208,7 +4910,16 @@
       "extraPortals": {
         "officialWebsite": "https://fitero.es/",
         "plenary": "https://fitero.es/ayuntamiento/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Fitero\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Corella": {
       "profile": "navarra",
@@ -4262,7 +4973,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.corella.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Corella\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Castejón": {
       "profile": "navarra",
@@ -4316,7 +5036,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.castejon.com/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Castejón\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Arguedas": {
       "profile": "navarra",
@@ -4366,6 +5095,15 @@
           "url": "https://sedeelectronica.arguedas.es/",
           "required": true,
           "instructions": "Revisar Urbanismo, normativa, planes, modificaciones y documentos que den validez jurídica al cruce cartográfico."
+        }
+      ],
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Arguedas\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
         }
       ]
     },
@@ -4421,7 +5159,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.valtierra.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Valtierra\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Cadreita": {
       "profile": "navarra",
@@ -4475,7 +5222,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://cadreita.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Cadreita\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Milagro": {
       "profile": "navarra",
@@ -4529,7 +5285,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://milagro.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Milagro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Villafranca": {
       "profile": "navarra",
@@ -4583,7 +5348,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.villafranca.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Villafranca\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Alfaro": {
       "profile": "la_rioja",
@@ -4637,7 +5411,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://alfaro.es/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Alfaro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Rincón de Soto": {
       "profile": "la_rioja",
@@ -4691,7 +5474,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.aytorincondesoto.larioja.org/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Rincón de Soto\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Aldeanueva de Ebro": {
       "profile": "la_rioja",
@@ -4745,7 +5537,16 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://aytoaldeanuevadeebro.larioja.org/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Aldeanueva de Ebro\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
     },
     "Cervera del Río Alhama": {
       "profile": "la_rioja",
@@ -4799,7 +5600,28 @@
       ],
       "extraPortals": {
         "officialWebsite": "https://www.aytocerveradelrioalhama.larioja.org/"
-      }
+      },
+      "privateMarketChecks": [
+        {
+          "key": "idealista",
+          "name": "Idealista — terrenos",
+          "required": true,
+          "searchQuery": "site:idealista.com/venta-terrenos \"Cervera del Río Alhama\"",
+          "instructions": "Revisar anuncios nuevos, modificados y bajadas de precio. Solo incorporar como candidato; validar urbanismo con fuentes oficiales antes de clasificar encaje."
+        }
+      ]
+    }
+  },
+  "privateMarketSources": {
+    "idealista": {
+      "name": "Idealista — terrenos en venta",
+      "domain": "idealista.com",
+      "role": "Fuente privada de descubrimiento. Nunca sustituye la comprobación urbanística oficial.",
+      "searchRule": "Buscar diariamente `site:idealista.com/venta-terrenos \"<municipio>\"` y, cuando exista una página municipal de Idealista, revisar también sus resultados ordenados por recientes.",
+      "include": "Anuncios de suelo que el portal describa como urbano, solar o urbanizable, además de parcelas cuya descripción sugiera vivienda unifamiliar.",
+      "excludeAtDiscovery": "Rústico/no urbanizable, participaciones indivisas sin control suficiente, naves y usos incompatibles.",
+      "validationRule": "No asignar Encaje ALTO o MEDIO basándose en Idealista. Antes cruzar parcela/dirección con planeamiento oficial y confirmar tipología unifamiliar y parámetros.",
+      "changeTracking": "Guardar URL del anuncio, identificador si está disponible, precio, superficie, fecha detectada y cambios de precio/retirada."
     }
   }
 }
