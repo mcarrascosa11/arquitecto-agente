@@ -90,6 +90,7 @@ export default function App() {
   const [opportunities,setOpportunities] = useState(fallbackOpportunities)
   const [lastUpdated,setLastUpdated] = useState('20/09/2026')
   const [sourceRegistry,setSourceRegistry] = useState(null)
+  const [sourceQuery,setSourceQuery] = useState('')
   const [query,setQuery] = useState('')
   const [status,setStatus] = useState('TODAS')
   const [regime,setRegime] = useState('LIBRE')
@@ -267,30 +268,72 @@ export default function App() {
       </section>}
 
 
-      {view==='sources' && <section className="panel-page">
-        <div className="section-head"><div><span className="section-kicker">MATRIZ DE VIGILANCIA</span><h3>Fuentes por municipio</h3></div></div>
+      {view==='sources' && <section className="panel-page sources-page">
+        <div className="section-head">
+          <div>
+            <span className="section-kicker">MATRIZ DE VIGILANCIA</span>
+            <h3>{sourceRegistry?.expectedMunicipalities || 90} municipios · portales fijados</h3>
+          </div>
+          {sourceRegistry?.verificationSummary && <span className="source-summary">
+            {sourceRegistry.verificationSummary.directMunicipalHub} portal directo · {sourceRegistry.verificationSummary.officialRegionalRegistryFallback} fallback oficial
+          </span>}
+        </div>
+
         {!sourceRegistry ? <div className="empty-state"><Database size={22}/><div><strong>Cargando matriz de fuentes…</strong></div></div> :
-        <div className="source-registry">
-          <p className="source-intro">Cada municipio debe completar todos los puntos de su perfil. Un boletín sin sede, plenos y patrimonio revisados no cuenta como municipio revisado.</p>
-          <div className="source-profiles">
-            {Object.entries(sourceRegistry.profiles || {}).map(([key,profile]) => <div className="source-profile" key={key}>
-              <h4>{profile.jurisdiction}</h4>
-              <div className="source-checks">{profile.mandatoryChecks.map((s,i)=><div className="source-check" key={i}>
-                <strong>{i+1}. {s.name}</strong><span>{s.purpose}</span>
-              </div>)}</div>
-            </div>)}
+        <>
+          <div className="source-search">
+            <Search size={16}/>
+            <input value={sourceQuery} onChange={e=>setSourceQuery(e.target.value)} placeholder="Buscar municipio…"/>
           </div>
-          <div className="source-municipalities">
-            <h4>{Object.keys(sourceRegistry.municipalities || {}).length} municipios asignados</h4>
-            <div className="municipality-source-grid">
-              {Object.entries(sourceRegistry.municipalities || {}).map(([name,config]) => <div className="municipality-source" key={name}>
-                <strong>{name}</strong>
-                <span>{sourceRegistry.profiles?.[config.profile]?.jurisdiction || config.profile}</span>
-                {config.overrides && <em>Fuentes municipales fijadas</em>}
-              </div>)}
-            </div>
+
+          <div className="source-registry">
+            {Object.entries(sourceRegistry.municipalities || {})
+              .filter(([name])=>name.toLowerCase().includes(sourceQuery.toLowerCase()))
+              .map(([name,config])=>{
+                const profile=sourceRegistry.profiles?.[config.profile] || {}
+                const common=Object.values(profile.commonPortals || {})
+                return <article className="municipality-source-card" key={name}>
+                  <div className="municipality-source-head">
+                    <div>
+                      <h4>{name}</h4>
+                      <span>{profile.jurisdiction || config.profile}</span>
+                    </div>
+                    <a className="source-hub-link" href={config.municipalHub?.url} target="_blank" rel="noreferrer">
+                      {config.municipalHub?.type==='registro_autonomico' ? 'Registro oficial' : config.municipalHub?.type==='web_municipal' ? 'Web municipal' : 'Sede municipal'} <ExternalLink size={13}/>
+                    </a>
+                  </div>
+
+                  <div className="source-groups">
+                    <div>
+                      <strong className="source-group-title">Municipal · obligatorio</strong>
+                      <div className="source-chip-list">
+                        {(config.municipalChecks || []).map(check=><a className="source-chip" href={check.url} target="_blank" rel="noreferrer" key={check.key}>
+                          {check.name}<ExternalLink size={11}/>
+                        </a>)}
+                      </div>
+                    </div>
+                    <div>
+                      <strong className="source-group-title">Regional · obligatorio</strong>
+                      <div className="source-chip-list">
+                        {common.map((portal,i)=><a className="source-chip common" href={portal.url} target="_blank" rel="noreferrer" key={i}>
+                          {portal.name}<ExternalLink size={11}/>
+                        </a>)}
+                      </div>
+                    </div>
+                  </div>
+
+                  {config.extraPortals && <div className="source-extra">
+                    <span>Enlaces específicos:</span>
+                    {Object.entries(config.extraPortals).map(([key,url])=><a href={url} target="_blank" rel="noreferrer" key={key}>{key}<ExternalLink size={10}/></a>)}
+                  </div>}
+
+                  {config.municipalHub?.type==='registro_autonomico' && <div className="source-warning">
+                    Portal municipal directo pendiente de resolver; se usa registro autonómico oficial como respaldo.
+                  </div>}
+                </article>
+              })}
           </div>
-        </div>}
+        </>}
       </section>}
 
       <section className="method-card">
