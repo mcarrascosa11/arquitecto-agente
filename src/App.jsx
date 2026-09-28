@@ -325,6 +325,15 @@ export default function App() {
                         </a>)}
                       </div>
                     </div>
+                    <div>
+                      <strong className="source-group-title">Mercado privado · obligatorio</strong>
+                      <div className="source-chip-list">
+                        {(config.privateMarketChecks || []).map(check=><span className="source-chip private-market" key={check.key}>
+                          {check.name}
+                        </span>)}
+                      </div>
+                      {(config.privateMarketChecks || []).map(check=><p className="source-rule" key={check.key+'-rule'}>{check.searchQuery}</p>)}
+                    </div>
                   </div>
 
                   {config.extraPortals && <div className="source-extra">
