@@ -93,7 +93,7 @@ export default function App() {
   const [sourceQuery,setSourceQuery] = useState('')
   const [query,setQuery] = useState('')
   const [status,setStatus] = useState('TODAS')
-  const [regime,setRegime] = useState('LIBRE')
+  const [regime,setRegime] = useState('TODAS')
   const [fit,setFit] = useState('OBJETIVO')
   const [origin,setOrigin] = useState('TODOS')
   const [selected,setSelected] = useState(fallbackOpportunities[0])
@@ -127,7 +127,7 @@ export default function App() {
     const matchesQuery = text.includes(query.toLowerCase())
     const matchesStatus = status === 'TODAS' || o.status === status
     const matchesRegime = regime === 'TODAS' || o.regime === regime
-    const matchesFit = fit === 'TODAS' || (fit === 'OBJETIVO' ? ['ALTO','MEDIO'].includes(o.fit) : o.fit === fit)
+    const matchesFit = fit === 'TODAS' || (fit === 'OBJETIVO' ? ['ALTO','MEDIO','PENDIENTE'].includes(o.fit) : o.fit === fit)
     const itemOrigin = o.origin || 'PÚBLICO'
     const matchesOrigin = origin === 'TODOS' || itemOrigin === origin
     return matchesQuery && matchesStatus && matchesRegime && matchesFit && matchesOrigin
