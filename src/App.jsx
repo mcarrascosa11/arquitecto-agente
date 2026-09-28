@@ -66,6 +66,33 @@ const coverage = {
   'Borde occidental':['Alfaro','Rincón de Soto','Aldeanueva de Ebro','Cervera del Río Alhama']
 }
 
+const municipalityCenters = {
+  'Borja':[41.834,-1.532],
+  'Murchante':[42.032,-1.655],
+  'Fontellas':[42.027,-1.576],
+  'Ablitas':[41.972,-1.642],
+  'Utebo':[41.715,-0.994],
+  'Pastriz':[41.618,-0.783],
+  'Nuez de Ebro':[41.5953,-0.6825],
+  'Luceni':[41.8286,-1.2392],
+  'Grisén':[41.744,-1.163],
+  'Fuendejalón':[41.7608,-1.4719],
+  'La Joyosa':[41.744,-1.073],
+  'Cadreita':[42.217,-1.695],
+  'Milagro':[42.242,-1.765],
+  'Fitero':[42.057,-1.857],
+  'Alfaro':[42.177,-1.749]
+}
+
+function approximatePoint(item) {
+  const center = municipalityCenters[item.municipality]
+  if (!center) return null
+  const seed = String(item.listingId || item.id || item.zone || '').split('').reduce((a,ch)=>a+ch.charCodeAt(0),0)
+  const angle = (seed % 360) * Math.PI / 180
+  const radius = 0.0012 + (seed % 4) * 0.00045
+  return [center[0] + Math.sin(angle)*radius, center[1] + Math.cos(angle)*radius]
+}
+
 function formatValue(value, suffix='') {
   if (value === null || value === undefined) return 'No verificado'
   if (typeof value === 'number') return new Intl.NumberFormat('es-ES').format(value) + suffix
@@ -154,17 +181,26 @@ export default function App() {
     markerLayer.current.clearLayers()
     const bounds = []
     filtered.forEach(o => {
-      if(!o.lat || !o.lng) return
-      const color = o.fit === 'ALTO' ? '#16803d' : o.fit === 'MEDIO' ? '#ba7a16' : '#7b817c'
+      const hasKnownCoordinates = Number.isFinite(o.lat) && Number.isFinite(o.lng)
+      const point = hasKnownCoordinates ? [o.lat,o.lng] : approximatePoint(o)
+      if(!point) return
+      const color = o.fit === 'ALTO' ? '#16803d' : o.fit === 'MEDIO' ? '#ba7a16' : o.fit === 'PENDIENTE' ? '#4f6f95' : '#7b817c'
+      const approximate = !hasKnownCoordinates
       const icon = window.L.divIcon({
         className:'custom-pin-wrapper',
-        html:'<span class="custom-pin" style="background:'+color+'"></span>',
-        iconSize:[18,18],iconAnchor:[9,9]
+        html: approximate
+          ? '<span class="custom-pin custom-pin-approx" style="border-color:'+color+';color:'+color+'">≈</span>'
+          : '<span class="custom-pin" style="background:'+color+'"></span>',
+        iconSize:[22,22],iconAnchor:[11,11]
       })
-      const marker = window.L.marker([o.lat,o.lng],{icon}).addTo(markerLayer.current)
-      marker.bindPopup('<strong>'+o.municipality+'</strong><br>'+o.zone+'<br><small>'+(o.fit || 'NO VERIFICADO')+' · '+o.status+'</small>')
+      const marker = window.L.marker(point,{icon}).addTo(markerLayer.current)
+      marker.bindPopup(
+        '<strong>'+o.municipality+'</strong><br>'+o.zone+
+        '<br><small>'+(o.fit || 'NO VERIFICADO')+' · '+o.status+'</small>'+
+        (approximate ? '<br><small>≈ ubicación aproximada del municipio</small>' : '')
+      )
       marker.on('click',()=>setSelected(o))
-      bounds.push([o.lat,o.lng])
+      bounds.push(point)
     })
     if(bounds.length > 1) mapInstance.current.fitBounds(bounds,{padding:[36,36],maxZoom:12})
     else if(bounds.length === 1) mapInstance.current.setView(bounds[0],12)
@@ -225,7 +261,7 @@ export default function App() {
 
         <section className="workspace">
           <div className="map-card">
-            <div className="section-head"><div><span className="section-kicker">MAPA</span><h3>Oportunidades filtradas</h3></div><span className="map-note">Verde = encaje alto · ámbar = medio</span></div>
+            <div className="section-head"><div><span className="section-kicker">MAPA</span><h3>Oportunidades filtradas</h3></div><span className="map-note">Sólido = coordenada conocida · ≈ = ubicación municipal aproximada</span></div>
             <div ref={mapRef} className="map"></div>
           </div>
           <div className="detail-card">{selected?<OpportunityDetail opportunity={selected}/>:<div className="empty-detail">Selecciona una oportunidad.</div>}</div>
