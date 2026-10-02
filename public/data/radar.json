@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "lastUpdated": "30/09/2026",
-    "mode": "daily-sync",
+    "lastUpdated": "02/10/2026",
+    "mode": "weekly-sync",
     "productProfile": "MP Mallén: vivienda unifamiliar aislada, pareada o adosada, 90–140 m² orientativos, espacio exterior privado, aparcamiento y PB preferente.",
-    "note": "Añadidos candidatos Idealista en Mallén, Magallón, Bisimbre, Bureta y Pinseque; en Magallón UE-3 se registra bajada de 127.400 € a 75.000 €. Todos permanecen PENDIENTE hasta verificación urbanística oficial. Actualización puntual de web; la cobertura integral v3 de los 90 municipios no se ha reejecutado en este commit.",
+    "note": "Revisión semanal 02/10/2026: bajada detectada en Nuez de Ebro de 165.000 € a 140.000 €. Se localizaron además candidatos nuevos en El Burgo de Ebro y Pastriz, pendientes de incorporación y verificación urbanística. Cobertura v3 integral no acreditada en las 90 localidades.",
     "privateMarket": {
       "source": "Idealista",
       "enabled": true,
@@ -523,7 +523,7 @@
       "sourceName": "Idealista",
       "listingId": "109959480",
       "detectedAt": "28/09/2026",
-      "lastSeenAt": "28/09/2026",
+      "lastSeenAt": "02/10/2026",
       "typology": "Según anuncio: unifamiliar y adosadas, hasta 12",
       "groundFloor": "NO VERIFICADO",
       "privateOutdoor": "Posible",
@@ -532,7 +532,7 @@
       "surface": 730,
       "buildable": 1277,
       "homes": 12,
-      "price": 165000,
+      "price": 140000,
       "plotPerHome": 61,
       "landPerHome": 13750,
       "deadline": null,
@@ -544,11 +544,13 @@
         "Hasta 12 viviendas implicaría densidad muy alta para el producto objetivo.",
         "Debe verificarse si la tipología adosada realmente encaja y si es posible PB/PB+1."
       ],
-      "note": "Candidato grande para analizar densidad y tipología real.",
+      "note": "Candidato grande para analizar densidad y tipología real. Bajada detectada de 165.000 € a 140.000 € el 02/10/2026.",
       "lat": null,
       "lng": null,
       "locationAccuracy": "Ubicación aproximada del anuncio",
-      "source": "https://www.idealista.com/inmueble/109959480/"
+      "source": "https://www.idealista.com/inmueble/109959480/",
+      "previousPrice": 165000,
+      "priceChangePct": -15.15
     },
     {
       "id": "idealista-luceni-110103775",
