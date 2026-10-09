@@ -1,0 +1,11 @@
+.badge.status.retirada{background:#f1e9e6;color:#8a4a3a}
+.signal-relevance{font-size:9px;font-weight:800;letter-spacing:.05em;padding:4px 7px;border-radius:999px;background:#edf2eb;color:#45624e}
+.signal-relevance.alta{background:#dff1e4;color:#1d6d3b}
+.signal-relevance.media{background:#fff0d4;color:#9a6209}
+.signal-relevance.baja{background:#eeeef0;color:#666673}
+.signal-relevance.descartada{background:#f3e6df;color:#94513d}
+.signal-item a.source-chip{white-space:nowrap}
+@media (max-width:700px){
+  .history-item.signal-item{grid-template-columns:20px 1fr}
+  .history-item.signal-item .signal-relevance,.history-item.signal-item a.source-chip{grid-column:2;justify-self:start}
+}
