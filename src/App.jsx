@@ -5,6 +5,7 @@ import {
   Database, RefreshCw, Trees, CarFront, Ruler, BadgeCheck
 } from 'lucide-react'
 import './index.css'
+import './signals.css'
 
 const fallbackOpportunities = [
   {
@@ -54,7 +55,6 @@ const historyItems = [
   }
 ]
 
-const earlySignals = []
 
 const coverage = {
   'Zaragoza y entorno':['Zaragoza','Utebo','La Puebla de Alfindén','Villamayor de Gállego','Pastriz','Alfajarín','Nuez de Ebro','El Burgo de Ebro','Villafranca de Ebro','Osera de Ebro','Fuentes de Ebro','Mediana de Aragón'],
@@ -116,6 +116,8 @@ function FitBadge({fit}) {
 export default function App() {
   const [opportunities,setOpportunities] = useState(fallbackOpportunities)
   const [lastUpdated,setLastUpdated] = useState('20/09/2026')
+  const [signals,setSignals] = useState([])
+  const [coverageInfo,setCoverageInfo] = useState(null)
   const [sourceRegistry,setSourceRegistry] = useState(null)
   const [sourceQuery,setSourceQuery] = useState('')
   const [query,setQuery] = useState('')
@@ -145,6 +147,8 @@ export default function App() {
         setOpportunities(data.opportunities)
         setSelected(current => data.opportunities.find(x => x.id === current?.id) || data.opportunities[0] || null)
         if(data.metadata?.lastUpdated) setLastUpdated(data.metadata.lastUpdated)
+        if(Array.isArray(data.signals)) setSignals(data.signals)
+        if(data.metadata?.sourceCoverage) setCoverageInfo(data.metadata.sourceCoverage)
       }).catch(() => {})
     return () => { active = false }
   },[])
@@ -217,7 +221,7 @@ export default function App() {
       </div>
       <div className="top-actions">
         <div className="last-check"><RefreshCw size={14}/> Última revisión de datos: {lastUpdated}</div>
-        <span className="live-dot"><i></i> radar diario activo</span>
+        <span className="live-dot"><i></i> radar semanal activo</span>
       </div>
     </header>
 
@@ -232,7 +236,7 @@ export default function App() {
         <div className="metric-grid">
           <Metric label="Encaje objetivo abierto" value={targetOpen} icon={<BadgeCheck size={18}/>} accent={targetOpen>0}/>
           <Metric label="PB viable abierta" value={pbOpen} icon={<Home size={18}/>}/>
-          <Metric label="Señales tempranas" value={earlySignals.length} icon={<Clock3 size={18}/>}/>
+          <Metric label="Señales tempranas" value={signals.filter(s => s.relevance !== "DESCARTADA").length} icon={<Clock3 size={18}/>}/>
           <Metric label="Municipios vigilados" value={Object.values(coverage).flat().length} icon={<MapPin size={18}/>}/>
         </div>
       </section>
@@ -248,7 +252,7 @@ export default function App() {
       {view==='opportunities' && <>
         <section className="filters">
           <div className="searchbox"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Municipio, parcela o tipología..."/></div>
-          <FilterSelect label="Estado" value={status} onChange={setStatus} options={['TODAS','ABIERTA','DIRECTA','FUTURA','PRELIMINAR']}/>
+          <FilterSelect label="Estado" value={status} onChange={setStatus} options={['TODAS','ABIERTA','DIRECTA','FUTURA','PRELIMINAR','RETIRADA']}/>
           <FilterSelect label="Régimen" value={regime} onChange={setRegime} options={['LIBRE','TODAS','PROTEGIDA']}/>
           <FilterSelect label="Origen" value={origin} onChange={setOrigin} options={['TODOS','PÚBLICO','IDEALISTA']}/>
           <FilterSelect label="Encaje MP Mallén" value={fit} onChange={setFit} options={['OBJETIVO','ALTO','MEDIO','PENDIENTE','TODAS','NO ENCAJA']}/>
@@ -292,7 +296,14 @@ export default function App() {
 
       {view==='signals' && <section className="panel-page">
         <div className="section-head"><div><span className="section-kicker">ANTES DE LA LICITACIÓN</span><h3>Señales tempranas</h3></div></div>
-        <div className="empty-state"><Clock3 size={22}/><div><strong>No hay señales tempranas activas verificadas cargadas.</strong><span>Se incorporarán acuerdos de Pleno/Junta, valoraciones e inicios de expediente cuando afecten a suelo unifamiliar.</span></div></div>
+        {coverageInfo?.public?.result && <div className="empty-state"><Clock3 size={22}/><div><strong>Boletines revisados: {coverageInfo.public.period}</strong><span>{coverageInfo.public.result}</span></div></div>}
+        {signals.length === 0 ? <div className="empty-state"><Clock3 size={22}/><div><strong>No hay señales tempranas activas verificadas cargadas.</strong><span>Se incorporarán acuerdos de Pleno/Junta, valoraciones e inicios de expediente cuando afecten a suelo unifamiliar.</span></div></div> :
+        <div className="history-list">{signals.map((s,i)=><div className="history-item signal-item" key={i}>
+          <Clock3 size={18}/>
+          <div><strong>{s.municipality} · {s.title}</strong><p>{s.date} · {s.type} · {s.note}</p></div>
+          <span className={'signal-relevance '+(s.relevance||'').toLowerCase()}>{s.relevance}</span>
+          <a className="source-chip" href={s.url} target="_blank" rel="noreferrer">{s.source}<ExternalLink size={11}/></a>
+        </div>)}</div>}
       </section>}
 
       {view==='history' && <section className="panel-page">

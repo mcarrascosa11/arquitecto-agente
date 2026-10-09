@@ -1,0 +1,74 @@
+{
+  "version": "v4-boletines",
+  "since": "09/10/2026",
+  "day": "viernes",
+  "supersedes": "Sustituye a executionRule de source-registry.json (v3, revisión diaria de los 6 apartados de cada sede municipal), que no era ejecutable.",
+  "executionRule": "Método v4 (semanal, viernes). 1) Boletines oficiales desde la última revisión: BOPZ (sumario de cada día), BON (sumario de cada número) y BOR (búsqueda por cada uno de los 4 municipios riojanos). Buscar en los anuncios de los 90 municipios: enajenación, subasta, solar, parcela, venta directa, bienes patrimoniales, desafectación, permuta, reparcelación, plan parcial/especial, modificación de PGOU/PGM, estudio de detalle y unidad de ejecución. Las enajenaciones municipales deben publicarse en boletín, así que esto sustituye a abrir los 6 apartados de las 540 sedes. 2) Abrir la sede o el perfil de contratante del municipio SOLO cuando un boletín dé una pista concreta. 3) Idealista: página de terrenos de cada municipio con paginación completa (ver idealista.urlPattern en este archivo). 4) Registrar la cobertura real en radar.json (metadata.sourceCoverage) y no dar nada por revisado si no se ha leído. Idealista nunca valida por sí solo el uso urbanístico.",
+  "officialBulletins": [
+    {
+      "name": "BOPZ",
+      "scope": "64 municipios de Zaragoza",
+      "how": "Portada → calendario → sumario de cada día; edicto en obtenerContenidoEdicto.do?idEdicto=<id>",
+      "url": "https://bop.dpz.es/BOPZ/"
+    },
+    {
+      "name": "BON",
+      "scope": "22 municipios de Navarra",
+      "how": "Sumario de cada número: /es/boletin/-/sumario/<año>/<nº>; apartado 2.2 ordenado por localidad",
+      "url": "https://bon.navarra.es/es/"
+    },
+    {
+      "name": "BOR",
+      "scope": "4 municipios de La Rioja",
+      "how": "Buscador con filtros={\"text\":\"<municipio>\"} ordenado por fecha",
+      "url": "https://web.larioja.org/bor-portada/bor"
+    }
+  ],
+  "keywords": [
+    "enajenación",
+    "subasta",
+    "solar",
+    "parcela",
+    "venta directa",
+    "bienes patrimoniales",
+    "desafectación",
+    "permuta",
+    "reparcelación",
+    "plan parcial",
+    "plan especial",
+    "modificación PGOU/PGM",
+    "estudio de detalle",
+    "unidad de ejecución"
+  ],
+  "idealista": {
+    "rule": "Recorrer todas las páginas (pagina-N.htm) de cada URL. 404 = sin terrenos anunciados. Anuncio nuevo = ID mayor que lastRun.idealistaMaxListingId. Idealista nunca valida el uso urbanístico.",
+    "urlPattern": "https://www.idealista.com/venta-terrenos/<municipio-sin-tildes-con-guiones>-<zaragoza|navarra|la-rioja>/",
+    "exceptions": {
+      "La Puebla de Alfindén": "https://www.idealista.com/venta-terrenos/puebla-de-alfinden-zaragoza/",
+      "Zaragoza": "https://www.idealista.com/venta-terrenos/zaragoza-zaragoza/"
+    },
+    "noListingsOn09102026": [
+      "Pradilla de Ebro",
+      "Alborge",
+      "Cinco Olivas",
+      "Monegrillo",
+      "La Zaida",
+      "Agón",
+      "Alberite de San Juan",
+      "Albeta",
+      "Fréscano",
+      "Pozuelo de Aragón",
+      "Talamantes",
+      "Malón",
+      "Vierlas",
+      "Monteagudo"
+    ]
+  },
+  "lastRun": {
+    "date": "09/10/2026",
+    "bopzFrom": "01/09/2026",
+    "bopzTo": "09/10/2026",
+    "bonNumbers": "170-201",
+    "idealistaMaxListingId": 112754444
+  }
+}
