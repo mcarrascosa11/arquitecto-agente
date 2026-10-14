@@ -47,7 +47,7 @@
       "La Puebla de Alfindén": "https://www.idealista.com/venta-terrenos/puebla-de-alfinden-zaragoza/",
       "Zaragoza": "https://www.idealista.com/venta-terrenos/zaragoza-zaragoza/"
     },
-    "noListingsOn09102026": [
+    "noListingsOn14102026": [
       "Pradilla de Ebro",
       "Alborge",
       "Cinco Olivas",
@@ -65,10 +65,10 @@
     ]
   },
   "lastRun": {
-    "date": "09/10/2026",
-    "bopzFrom": "01/09/2026",
-    "bopzTo": "09/10/2026",
-    "bonNumbers": "170-201",
-    "idealistaMaxListingId": 112754444
+    "date": "14/10/2026",
+    "bopzFrom": "10/10/2026",
+    "bopzTo": "14/10/2026",
+    "bonNumbers": "202-205",
+    "idealistaMaxListingId": 112799715
   }
 }
