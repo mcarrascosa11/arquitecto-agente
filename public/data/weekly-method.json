@@ -65,10 +65,11 @@
     ]
   },
   "lastRun": {
-    "date": "16/10/2026",
-    "bopzFrom": "15/10/2026",
-    "bopzTo": "16/10/2026",
-    "bonNumbers": "206-207",
-    "idealistaMaxListingId": 112820824
+    "date": "23/10/2026",
+    "bopzFrom": "17/10/2026",
+    "bopzTo": "23/10/2026",
+    "bonNumbers": "208-212",
+    "borNumbers": "201-205",
+    "idealistaMaxListingId": 112887568
   }
 }
