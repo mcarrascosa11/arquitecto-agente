@@ -70,6 +70,19 @@
     "bopzTo": "23/10/2026",
     "bonNumbers": "208-212",
     "borNumbers": "201-205",
-    "idealistaMaxListingId": 112887568
-  }
+    "idealistaMaxListingId": 112887568,
+    "mergedExternalCommits": [
+      "8351a1b (ChatGPT, 23/10/2026 06:45 UTC)"
+    ]
+  },
+  "concurrentWriters": [
+    {
+      "name": "ChatGPT (acción programada de Marcos)",
+      "identifiedAt": "23/10/2026",
+      "schedule": "Viernes hacia las 06:45 UTC (08:45 en Madrid), antes de esta revisión",
+      "evidence": "Commit 8351a1b del 23/10/2026 («three pending candidates and accurate v3 coverage»), sin línea Co-Authored-By",
+      "writes": "public/data/radar.json completo, con su propio esquema de cobertura v3 (0/90, incompleta)",
+      "rule": "Antes de escribir: listar los commits de solar-radar desde lastRun.date y leer la versión actual de radar.json. Conservar las oportunidades y señales que haya añadido ChatGPT, verificarlas en la fuente (Idealista o boletín) y anotar en note que vienen de su acción programada. No adoptar su sourceCoverage ni su metadata.note: la cobertura la fija esta revisión. Subir siempre con el sha actual; si cambia entre la lectura y la escritura, volver a leer y fusionar."
+    }
+  ]
 }
