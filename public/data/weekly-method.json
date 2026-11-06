@@ -62,19 +62,34 @@
       "Malón",
       "Vierlas",
       "Monteagudo"
+    ],
+    "noListingsOn06112026": [
+      "Pradilla de Ebro",
+      "Alborge",
+      "Cinco Olivas",
+      "Monegrillo",
+      "La Zaida",
+      "Agón",
+      "Alberite de San Juan",
+      "Albeta",
+      "Fréscano",
+      "Pozuelo de Aragón",
+      "Talamantes",
+      "Malón",
+      "Vierlas"
     ]
   },
   "lastRun": {
-    "date": "30/10/2026",
-    "bopzFrom": "24/10/2026",
-    "bopzTo": "30/10/2026",
-    "bopzNumbers": "246-251",
-    "bonNumbers": "213-218",
-    "borNumbers": "206-210",
-    "idealistaListings": 907,
-    "idealistaMaxListingId": 112944142,
+    "date": "06/11/2026",
+    "bopzFrom": "31/10/2026",
+    "bopzTo": "06/11/2026",
+    "bopzNumbers": "252-256",
+    "bonNumbers": "219-222",
+    "borNumbers": "211-215",
+    "idealistaListings": 911,
+    "idealistaMaxListingId": 112996953,
     "mergedExternalCommits": [
-      "8dbf8be (ChatGPT, 30/10/2026 07:19 UTC)"
+      "d4166d7 (ChatGPT, 06/11/2026 07:24 UTC; solo metadata, no adoptada)"
     ]
   },
   "concurrentWriters": [
