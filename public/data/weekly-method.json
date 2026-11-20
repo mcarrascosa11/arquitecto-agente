@@ -77,20 +77,37 @@
       "Talamantes",
       "Malón",
       "Vierlas"
+    ],
+    "noListingsOn20112026": [
+      "Pradilla de Ebro",
+      "Alborge",
+      "Cinco Olivas",
+      "Monegrillo",
+      "La Zaida",
+      "Agón",
+      "Alberite de San Juan",
+      "Albeta",
+      "Fréscano",
+      "Pozuelo de Aragón",
+      "Talamantes",
+      "Malón",
+      "Vierlas"
     ]
   },
   "lastRun": {
-    "date": "06/11/2026",
-    "bopzFrom": "31/10/2026",
-    "bopzTo": "06/11/2026",
-    "bopzNumbers": "252-256",
-    "bonNumbers": "219-222",
-    "borNumbers": "211-215",
-    "idealistaListings": 911,
-    "idealistaMaxListingId": 112996953,
+    "date": "20/11/2026",
+    "bopzFrom": "07/11/2026",
+    "bopzTo": "20/11/2026",
+    "bopzNumbers": "257-268",
+    "bonNumbers": "223-232",
+    "borNumbers": "216-223",
+    "idealistaListings": 913,
+    "idealistaMaxListingId": 113117036,
     "mergedExternalCommits": [
-      "d4166d7 (ChatGPT, 06/11/2026 07:24 UTC; solo metadata, no adoptada)"
-    ]
+      "d826c58 (ChatGPT, 13/11/2026 07:07 UTC; solo metadata, no adoptada)",
+      "7510408 (ChatGPT, 20/11/2026 07:08 UTC; solo metadata, no adoptada)"
+    ],
+    "note": "El 13/11/2026 no hubo revisión con este método; esta revisión cubre dos semanas."
   },
   "concurrentWriters": [
     {
