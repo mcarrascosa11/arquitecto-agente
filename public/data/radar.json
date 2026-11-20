@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "lastUpdated": "13/11/2026",
+    "lastUpdated": "20/11/2026",
     "mode": "weekly-sync",
     "productProfile": "MP Mallén: vivienda unifamiliar aislada, pareada o adosada, 90–140 m² orientativos, espacio exterior privado, aparcamiento y PB preferente.",
-    "note": "Revisión semanal 13/11/2026: comprobación parcial de anuncios de terrenos de Zaragoza y provincia en Idealista; sin novedad material confirmada frente a las oportunidades registradas. No se ha ejecutado el barrido obligatorio de sedes, actas, contratación, planeamiento y mercados privados para los 90 municipios. No se infiere vigencia ni precio actual de los anuncios no comprobados.",
+    "note": "Revisión parcial: consulta de anuncios indexados en El Burgo de Ebro; sin cambios materiales confirmados en los anuncios contrastados. No se acredita cobertura integral ni vigencia actual de resultados indexados.",
     "privateMarket": {
       "source": "Idealista",
       "enabled": true,
@@ -115,12 +115,11 @@
         "checked": 0,
         "failed": 90,
         "status": "INCOMPLETA",
-        "detail": "Solo exploración parcial de páginas generales de Zaragoza y provincia; no se han revisado todos los anuncios ni municipios."
+        "detail": "Consulta parcial de resultados indexados de El Burgo de Ebro; sin revisión íntegra por fecha ni comprobación de vigencia."
       },
       "failedSources": [
-        "No ejecutadas todas las consultas municipales obligatorias: municipalChecks, extraPortals y commonPortals.",
-        "No ejecutados todos los privateMarketChecks por municipio ni la paginación íntegra de Idealista.",
-        "No verificada la disponibilidad ni la modificación de precios de todas las oportunidades existentes."
+        "No ejecutadas las comprobaciones municipales y regionales obligatorias de los 90 municipios.",
+        "No completados los privateMarketChecks ni la revisión por recientes; resultados indexados con antigüedad de semanas o meses."
       ]
     },
     "failedSources": [
